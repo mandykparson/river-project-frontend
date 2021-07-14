@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-export default function Signup() {
+export default function Signup(props) {
     const [ username, setUsername ] = useState('');    
     const [ password, setPassword ] = useState('');   
 
@@ -23,23 +23,29 @@ export default function Signup() {
             .then(newUser => console.log(newUser))
     }
  
-    return (
-        <form onSubmit={ handleSubmit }>
-            <input 
-                type="text"
-                name="username" 
-                value={username}
-                placeholder="username"
-                onChange={(event) => setUsername(event.target.value)}
-            />
-            <input 
-                type="password"
-                name="password" 
-                value={password}
-                placeholder="password"
-                onChange={(event) => setPassword(event.target.value)}
-            />
-            <input type="submit" value="Sign Up"/>
-        </form>
-    )
+    return (props.trigger) ? (
+        <div className="popup">
+            <div className="popup-inner">
+                <button className="close-btn" onClick={() => {props.setButtonPopup(!props.trigger)}}>X</button>
+                { props.children }
+                <form onSubmit={ handleSubmit }>
+                    <input 
+                        type="text"
+                        name="username" 
+                        value={username}
+                        placeholder="username"
+                        onChange={(event) => setUsername(event.target.value)}
+                    />
+                    <input 
+                        type="password"
+                        name="password" 
+                        value={password}
+                        placeholder="password"
+                        onChange={(event) => setPassword(event.target.value)}
+                    />
+                    <input type="submit" value="Sign Up"/>
+                </form>
+            </div>
+        </div>
+    ) : "";
 }

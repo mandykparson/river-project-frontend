@@ -3,6 +3,7 @@ import Login from "./Components/Login"
 import Signup from "./Components/Signup"
 import RiverForm from "./Components/RiverForm"
 import RiverStretchRoutes from "./Components/RiverStretchRoutes"
+import StretchSelection from './Components/StretchSelection';
 import { useState, useEffect } from "react"
 
 function App() {
@@ -10,9 +11,11 @@ function App() {
   const [location, setLocation ] = useState('Colorado')
   const [classRating, setClassRating] = useState('1')
   const [length, setLength] = useState('20')
-  const [selection, setSelection ] = useState('')
+  const [selection, setSelection ] = useState(undefined)
   const [riverStretches, setRiverStretches] = useState([])
-  const [filteredStretches, setFilteredStretches] = useState([{name:"No Stretches Found"}])
+  const [filteredStretches, setFilteredStretches] = useState([])
+  const [loginButtonPopup, setLogInButtonPopup] = useState(false);
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/river_stretches')
@@ -22,11 +25,22 @@ function App() {
 
   return (
     <div className="App">
-      <h1>The River Project</h1>
-      <h2>Login</h2> 
-      <Login />
-      <h2>Sign Up</h2>
-      <Signup />
+      <div className="header">
+        <h1>The River Project</h1>
+        <button onClick={() => {setLogInButtonPopup(!loginButtonPopup)}}>Login</button> 
+        <Login trigger={loginButtonPopup} setLogInButtonPopup={setLogInButtonPopup}/>
+        <button onClick={() => {setButtonPopup(!buttonPopup)}}>Sign Up</button> 
+        <Signup trigger={buttonPopup} setButtonPopup={setButtonPopup}/>
+      </div>
+    
+    {selection ? 
+      <div>
+        <StretchSelection 
+          selection={selection}
+          setSelection={setSelection}
+          />
+      </div> :
+      <div> 
       <h2>Choose Your Next Adventure</h2>
       <RiverForm 
         location={location}
@@ -47,8 +61,11 @@ function App() {
         setRiverStretches={setRiverStretches}
         filteredStretches={filteredStretches}
         setFilteredStretches={setFilteredStretches}
+        selection={selection}
+        setSelection={setSelection}
       />
-    </div>
+    </div>}
+  </div>
   );
 }
 
