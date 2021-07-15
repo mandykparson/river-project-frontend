@@ -42,7 +42,9 @@ export default function StretchSelection(props) {
         <div className="stretch-selection">
             <div className="selection-header">
                 <h1>{props.selection.name}</h1>
-                <button onClick={handleClick}>Go Back</button>
+                <div>
+                    <button className="goback" onClick={handleClick}>Go Back</button>
+                </div>
             </div>
             <div className="selection-sub-header">
                 <img src={props.selection.img} alt={props.selection.name}/>

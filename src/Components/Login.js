@@ -25,8 +25,9 @@ export default function Login(props) {
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">
-                <button className="close-btn" onClick={() => {props.setLogInButtonPopup(!props.trigger)}}>Close</button>
+                <button className="close-btn" onClick={() => {props.setLogInButtonPopup(!props.trigger)}}>X</button>
                 { props.children }
+                <h2>Log In</h2>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"

@@ -12,7 +12,9 @@ export default function RiverForm(props) {
     }
     return (
         <div className="river-form">
-            <form onSubmit={ handleSubmit }>
+            <img src="https://static.scientificamerican.com/sciam/cache/file/F20C6EBB-2468-4CAB-ABA63ABA19B2EC0A_source.jpg?w=690&h=930&238EC88B-13BD-4B47-A7D3421B5720ECA0" alt="colorado-river"/>
+            <form className="stretch-finder" onSubmit={ handleSubmit }>
+                <h2>Stretch Finder</h2>
                 <label for="miles"> Mileage: </label>
                 <select
                     name="miles"

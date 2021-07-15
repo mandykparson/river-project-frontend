@@ -45,7 +45,6 @@ function App() {
           />
       </div> :
       <div> 
-      <h2>Stretch Finder</h2>
       <RiverForm 
         location={location}
         setLocation={setLocation}

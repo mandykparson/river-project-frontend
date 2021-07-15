@@ -27,9 +27,11 @@ export default function RiverStretchRoutes(props) {
         }
     }
     return (
-        <div>
+        <div className="river-stretch-routes">
             <h2>Select From the Following:</h2>
-            { renderCards() }
+            <div className="cards-container">
+                { renderCards() }
+            </div>
         </div>
     )
 }

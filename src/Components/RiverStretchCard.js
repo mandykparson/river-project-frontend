@@ -18,8 +18,8 @@ export default function RiverStretchCard(props) {
                 <img src={props.stretch.img} alt={props.stretch.name}/>
             </div>
             <div className="text-container">
-                <h2>{props.stretch.name}</h2>
-                <h3>{props.stretch.river} River</h3>
+                <h3>{props.stretch.name}</h3>
+                <h4>{props.stretch.river} River</h4>
                 { ifPermit() }
             </div>
         </div>
