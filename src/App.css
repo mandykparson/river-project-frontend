@@ -1,11 +1,70 @@
-body {
-    margin: 0;
+:root {
+    --background-color: #1D365C;
+    --text-color: #8CAEE1;
+    --hovertext-color: #4581DB;
+    --hoverbackground-color: #39475C;
+    --callout-color: #3664A8;
 }
 
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Rock Salt', cursive;
+}
+
+button {
+    background-color: var(--text-color);
+    border-radius: 50px;
+    border-style: none;
+    color: white;
+    font-size: 20px;
+    padding: 20px 20px;
+}
+
+button:hover, input[type=submit]:hover {
+    background-color: white;
+    color: var(--text-color);
+}
+
+input[type=submit] {
+    background-color: var(--text-color);
+    border-radius: 50px;
+    border-style: none;
+    color: white;
+    font-size: 15px;
+    padding: 15px 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--hovertext-color);
+}
+
+h2 {
+    color: var(--hoverbackground-color);
+}
+
+#login {
+    background-color: var(--background-color);
+}
 .header {
     display: flex;
     color: white;
-    background-color: black;
+    background-color: var(--background-color);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    justify-content: space-between;
+}
+
+.logandsignbuttons {
+    padding-top: 2rem;
+}
+
+.river-form {
+    display: flex;
     padding: 2rem;
 }
 
@@ -51,7 +110,7 @@ body {
     padding: 2rem;
     height: fit-content;
 }
-.selection-sub-header img {
+.selection-sub-header img{
     width: 500px;
 }
 
@@ -74,7 +133,7 @@ body {
 }
 
 .image-card {
-    max-width: 90%;
+    max-width: 100%;
     max-height: 100%;
 }
 

@@ -5,6 +5,7 @@ import RiverForm from "./Components/RiverForm"
 import RiverStretchRoutes from "./Components/RiverStretchRoutes"
 import StretchSelection from './Components/StretchSelection';
 import { useState, useEffect } from "react"
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 function App() {
 
@@ -23,14 +24,17 @@ function App() {
       .then(riverStretchesAPI => setRiverStretches(riverStretchesAPI))
   }, [])
 
+
   return (
     <div className="App">
       <div className="header">
         <h1>The River Project</h1>
-        <button onClick={() => {setLogInButtonPopup(!loginButtonPopup)}}>Login</button> 
-        <Login trigger={loginButtonPopup} setLogInButtonPopup={setLogInButtonPopup}/>
-        <button onClick={() => {setButtonPopup(!buttonPopup)}}>Sign Up</button> 
-        <Signup trigger={buttonPopup} setButtonPopup={setButtonPopup}/>
+        <div className="logandsignbuttons">
+          <button id="login" onClick={() => {setLogInButtonPopup(!loginButtonPopup)}}>Login</button> 
+          <Login trigger={loginButtonPopup} setLogInButtonPopup={setLogInButtonPopup}/>
+          <button id="signup" onClick={() => {setButtonPopup(!buttonPopup)}}>Sign Up</button> 
+          <Signup trigger={buttonPopup} setButtonPopup={setButtonPopup}/>
+        </div>
       </div>
     
     {selection ? 
@@ -41,7 +45,7 @@ function App() {
           />
       </div> :
       <div> 
-      <h2>Choose Your Next Adventure</h2>
+      <h2>Stretch Finder</h2>
       <RiverForm 
         location={location}
         setLocation={setLocation}

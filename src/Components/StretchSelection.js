@@ -4,7 +4,7 @@ import { useState } from 'react'
 export default function StretchSelection(props) {
 
     const [count, setCount] = useState(0)
-    const [length, setLength] = useState(props.selection.images.length)
+    const [length] = useState(props.selection.images.length)
 
     const handleClick = () => {
         props.setSelection(undefined)
@@ -31,7 +31,11 @@ export default function StretchSelection(props) {
     }
 
     const showCard = () => {
-        return <img className="image-card" src={props.selection.images[count].source} alt={props.selection.name}/>
+        return (
+            <div>
+                <img className="image-card" src={props.selection.images[count].source} alt={props.selection.name}/>
+            </div>
+        )
     }
 
     return (
