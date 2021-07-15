@@ -28,6 +28,7 @@ export default function Signup(props) {
             <div className="popup-inner">
                 <button className="close-btn" onClick={() => {props.setButtonPopup(!props.trigger)}}>X</button>
                 { props.children }
+                <h2>Sign Up</h2>
                 <form onSubmit={ handleSubmit }>
                     <input 
                         type="text"

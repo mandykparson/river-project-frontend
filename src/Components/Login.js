@@ -19,7 +19,18 @@ export default function Login(props) {
             body: JSON.stringify({user: {username, password}})
         })
             .then(res => res.json())
-            .then(result => console.log(result))
+            .then(result => {
+                if (result.error) {
+                    console.log("nawp")
+                    console.log(result)
+                } else {
+                    props.setLogInButtonPopup(!props.trigger)
+                    console.log("yawp")
+                    console.log(result)
+                    
+                }
+            })
+            
     }
 
     return (props.trigger) ? (
@@ -37,7 +48,7 @@ export default function Login(props) {
                         onChange={event => setUsername(event.target.value)}
                     />
                     <input
-                        type="text"
+                        type="password"
                         name="password"
                         placeholder="password"
                         value={password}
