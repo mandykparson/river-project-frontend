@@ -38,6 +38,11 @@ export default function StretchSelection(props) {
         )
     }
 
+    const renderPOI = () => {
+        return props.selection.images[count].pois.map(poi => {
+            return <li>{poi.information}</li>
+        })
+    }
     return (
         <div className="stretch-selection">
             <div className="selection-header">
@@ -56,6 +61,17 @@ export default function StretchSelection(props) {
                 <button className="dir-btn" onClick={ handleBackward }> &#x21E6; </button>
                 { showCard() }
                 <button className="dir-btn" onClick={ handleForward }> &#x21E8; </button>
+            </div>
+            <div className="selection-sub-main">
+                {props.selection.images[count].pois.length > 0 ?
+                    <div>
+                        <h3>Points of Interest</h3>
+                        <ul>
+                            { renderPOI() }
+                        </ul> 
+                    </div> : ""
+                }
+                
             </div>
         </div>
     )

@@ -25,9 +25,9 @@ export default function Login(props) {
                     console.log(result)
                 } else {
                     props.setLogInButtonPopup(!props.trigger)
+                    props.setWillGreet(!props.willGreet)
                     console.log("yawp")
                     console.log(result)
-                    
                 }
             })
             

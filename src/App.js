@@ -16,7 +16,9 @@ function App() {
   const [riverStretches, setRiverStretches] = useState([])
   const [filteredStretches, setFilteredStretches] = useState([])
   const [loginButtonPopup, setLogInButtonPopup] = useState(false);
+  const [signupButtonPopup, setSignUpButtonPopup] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [willGreet, setWillGreet] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/river_stretches')
@@ -29,12 +31,25 @@ function App() {
     <div className="App">
       <div className="header">
         <h1>The River Project</h1>
-        <div className="logandsignbuttons">
-          <button id="login" onClick={() => {setLogInButtonPopup(!loginButtonPopup)}}>Login</button> 
-          <Login trigger={loginButtonPopup} setLogInButtonPopup={setLogInButtonPopup}/>
-          <button id="signup" onClick={() => {setButtonPopup(!buttonPopup)}}>Sign Up</button> 
-          <Signup trigger={buttonPopup} setButtonPopup={setButtonPopup}/>
-        </div>
+        {willGreet ? 
+          <div>
+            <h4>Welcome Back</h4>
+          </div> :
+          <div className="logandsignbuttons">
+            <button id="login" onClick={() => {setLogInButtonPopup(!loginButtonPopup)}}>Login</button> 
+            <Login 
+              trigger={loginButtonPopup} 
+              setLogInButtonPopup={setLogInButtonPopup}
+              willGreet={willGreet}
+              setWillGreet={setWillGreet}/>
+            <button id="signup" onClick={() => {setSignUpButtonPopup(!signupButtonPopup)}}>Sign Up</button> 
+            <Signup 
+              trigger={buttonPopup} 
+              setButtonPopup={setButtonPopup}
+              setSignUpButtonPopup={setSignUpButtonPopup}
+              />
+          </div>
+        }
       </div>
     
     {selection ? 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import "../Popup.css"
 
 
 export default function Signup(props) {
@@ -20,13 +21,23 @@ export default function Signup(props) {
             body: JSON.stringify({user: {username, password}})
         })
             .then(response => response.json())
-            .then(newUser => console.log(newUser))
+            .then(newUser => {
+                if (newUser.id) {
+                    console.log("yawp")
+                    console.log(newUser)
+                    props.setSignUpButtonPopup(!props.singupButtonPopup)
+                } else {
+                    console.log("nawp")
+                    console.log("error")
+                }
+            })
+            console.log(props.trigger)
     }
  
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">
-                <button className="close-btn" onClick={() => {props.setButtonPopup(!props.trigger)}}>X</button>
+                <button className="close-btn" onClick={() => {props.setSignUpButtonPopup(!props.trigger)}}>X</button>
                 { props.children }
                 <h2>Sign Up</h2>
                 <form onSubmit={ handleSubmit }>
