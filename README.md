@@ -18,6 +18,8 @@ Rivers change from day to day and even hour to hour. The inspiration for this ap
 
 ## Demo
 
+https://user-images.githubusercontent.com/79546411/128638292-2e50591c-f69a-46be-bddd-e6d4a56719f0.mp4
+
 ## Features
 * Users can search for rivers based on Class, Location, and Mileage
 * Users can select a river and see the maps associated with it
